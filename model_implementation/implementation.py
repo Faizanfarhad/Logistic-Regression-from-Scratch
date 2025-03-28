@@ -13,9 +13,7 @@ classification_encoder = LabelEncoder()
 encode = LabelEncoder()
 
 
-
 target = input('Enter the target : ' )
-
 
 y_actual = df.iloc[:,-1]
 X = df.iloc[:,:-1]
@@ -28,8 +26,6 @@ y_actual = df[target]
 
 x_train,x_test,y_train,y_test = train_test_split(X,y_actual,test_size=0.20,random_state=42)
 
-# x_train,_ = logistic_func.encode_categorical_columns(x_train)
-# x_test ,_= logistic_func.encode_categorical_columns(x_test)
 
 y_true = np.array(y_actual)
 y_test = np.array(y_test)
@@ -42,8 +38,6 @@ def sigmoid(x):
 def logistic_regression(X,w,b):
     z = np.dot(X,w) + b
     return sigmoid(z) 
-
-
 
 
 def train(X:pd.DataFrame,y:pd.DataFrame, learningRate = 0.01, epoc=500):
